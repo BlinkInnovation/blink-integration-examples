@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_splash">
+
+    <fragment
+        android:id="@+id/nav_splash"
+        android:name="com.example.hybridexample.ui.splash.SplashFragment"
+        android:label="@string/splash"
+        tools:layout="@layout/fragment_splash" />
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.hybridexample.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_insurance"
+        android:name="com.example.hybridexample.ui.insurance.InsuranceFragment"
+        android:label="@string/menu_insurance"
+        tools:layout="@layout/fragment_insurance" />
+
+    <fragment
+        android:id="@+id/nav_passenger"
+        android:name="com.example.hybridexample.ui.passenger.PassengerFragment"
+        android:label="@string/menu_passenger"
+        tools:layout="@layout/fragment_passenger" />
+
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.example.hybridexample.ui.account.AccountFragment"
+        android:label="@string/menu_account"
+        tools:layout="@layout/fragment_account" />
+</navigation>
