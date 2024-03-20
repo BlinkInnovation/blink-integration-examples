@@ -7,13 +7,16 @@
 
 ## Environment variables
 #### These can be found under environment.js for an example
-ENV_ClientId = your clientId;
-ENV_ClientSecret = your client secret;
-ENV_EmailAddress = an email for the user that will be logged in;
-ENV_ADMINEmailAddress = admin email;
-ENV_PartnerId = the partners Id;
-ENV_ApiKey = your api key;
-ENV_ApiUrl = your api url;
+
+- **EXPO_PUBLIC_ClientId:** Your clientId
+- **EXPO_PUBLIC_ClientSecret:** Your client secret
+- **EXPO_PUBLIC_EmailAddress:** An email for the user that will be logged in
+- **EXPO_PUBLIC_ADMINEmailAddress:** Admin email
+- **EXPO_PUBLIC_PartnerId:** The partner's Id
+- **EXPO_PUBLIC_ApiKey:** Your API key
+- **EXPO_PUBLIC_ApiUrl:** Your API URL
+- **EXPO_PUBLIC_FrontendUrl:** URL pointing to the frontend application
+
 
 ## Packages
 ## react-native-webview is what is being used for rendering of the webview (widget)
