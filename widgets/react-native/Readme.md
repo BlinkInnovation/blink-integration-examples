@@ -6,7 +6,7 @@
 
 
 ## Environment variables
-#### These can be found under environment.js for an example
+#### You will need to add a .env file to the root of this project the following keys would be needed
 
 - **EXPO_PUBLIC_ClientId:** Your clientId
 - **EXPO_PUBLIC_ClientSecret:** Your client secret
