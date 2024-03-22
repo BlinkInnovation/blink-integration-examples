@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +14,6 @@ import com.example.hybridexample.R;
 import com.example.hybridexample.core.MyWebViewClient;
 import com.example.hybridexample.core.WebFragment;
 import com.example.hybridexample.databinding.FragmentAccountBinding;
-import com.example.hybridexample.databinding.FragmentInsuranceBinding;
 
 public class AccountFragment extends Fragment implements WebFragment {
 
@@ -49,10 +47,10 @@ public class AccountFragment extends Fragment implements WebFragment {
 
         MyApplication application = ((MyApplication) getActivity().getApplication());
         String token = application.getToken();
-        String branding = application.getBranding();
+        String language = application.getLanguage();
 
         if(token != null || forced) {
-            webView.loadUrl(getString(R.string.website_url)+"/widgets/account?token=" + token + "&theme=" + branding);
+            webView.loadUrl(getString(R.string.website_url)+"/widgets/account?token=" + token + "&lang=" + language);
         }
     }
 

@@ -2,11 +2,9 @@ package com.example.hybridexample.ui.home;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
@@ -55,10 +53,10 @@ public class HomeFragment extends Fragment implements WebFragment {
 
         MyApplication application = ((MyApplication) getActivity().getApplication());
         String token = application.getToken();
-        String branding = application.getBranding();
+        String language = application.getLanguage();
 
         if(token != null || forced) {
-            webView.loadUrl(getString(R.string.website_url)+"/widgets/dashboard?token=" + token + "&theme=" + branding);
+            webView.loadUrl(getString(R.string.website_url)+"/widgets/insurance?token=" + token + "&lang=" + language);
         }
     }
 

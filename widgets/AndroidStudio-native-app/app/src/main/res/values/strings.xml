@@ -12,11 +12,10 @@
     <string name="menu_insurance">My insurance</string>
     <string name="menu_passenger">My Passengers</string>
     <string name="menu_account">My Account</string>
-    <string name="website_url">https://travel-sandbox.blinkinnovation.co</string>
+    <string name="website_url">https://travel-sandbox-new.blinkinnovation.co</string>
     <string name="api_url">https://sandbox.blinkapi.co</string>
     <string name="emailAddress">traveldemo@blinkinnovation.co</string>
     <string name="clientId">67ju1e7p3ujq7dg4g31io703cr</string>
     <string name="clientSecret">1vjri6dvd3fa9pfm66dkappg42445qc3joe4gq89764t9lg19n0f</string>
     <string name="apiKey">Zgz4NhoIqZ1PJ6vw49K9N9hdWB7dGnWD29kXxg7X</string>
-    <string name="branding">baseline</string>
 </resources>

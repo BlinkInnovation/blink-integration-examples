@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
@@ -47,10 +46,10 @@ public class PassengerFragment extends Fragment implements WebFragment  {
 
         MyApplication application = ((MyApplication) getActivity().getApplication());
         String token = application.getToken();
-        String branding = application.getBranding();
+        String language = application.getLanguage();
 
         if(token != null || forced) {
-            webView.loadUrl(getString(R.string.website_url)+"/widgets/passengers?basic=true&token=" + token + "&theme=" + branding);
+            webView.loadUrl(getString(R.string.website_url)+"/widgets/account/passengers?basic=true&token=" + token + "&lang=" + language);
         }
     }
 

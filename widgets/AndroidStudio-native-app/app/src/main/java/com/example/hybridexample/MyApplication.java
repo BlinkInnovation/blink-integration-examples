@@ -5,12 +5,12 @@ import android.app.Application;
 public class MyApplication extends Application {
 
     private String token;
-    private String branding;
+    private String language;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        branding = getString(R.string.branding);
+        language = "en";
     }
 
 
@@ -21,11 +21,11 @@ public class MyApplication extends Application {
         this.token = token;
     }
 
-    public String getBranding() {
-        return branding;
+    public String getLanguage() {
+        return language;
     }
-    public void setBranding(String branding) {
-        this.branding =  branding;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
 }

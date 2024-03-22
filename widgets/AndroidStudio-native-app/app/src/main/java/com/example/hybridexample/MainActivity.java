@@ -98,29 +98,26 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.branding_baseline:
-                setBranding("baseline");
+            case R.id.language_english:
+                setLanguage("en");
                 return true;
-            case R.id.branding_bluecross:
-                setBranding("bluecross");
+            case R.id.language_french:
+                setLanguage("fr");
                 return true;
-            case R.id.branding_tugo:
-                setBranding("tugo");
+            case R.id.language_spanish:
+                setLanguage("es");
                 return true;
-            case R.id.branding_justtravel:
-                setBranding("justtravel");
-                return true;
-            case R.id.branding_demo1:
-                setBranding("direct-line");
+            case R.id.language_german:
+                setLanguage("de");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    public void setBranding(String branding) {
+    public void setLanguage(String branding) {
 
-        ((MyApplication) MainActivity.this.getApplication()).setBranding(branding);
+        ((MyApplication) MainActivity.this.getApplication()).setLanguage(branding);
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
         Fragment fragment = navHostFragment.getChildFragmentManager().getFragments().get(0);

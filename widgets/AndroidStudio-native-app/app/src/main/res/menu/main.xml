@@ -8,18 +8,20 @@
         app:showAsAction="never" />
     <item
         android:orderInCategory="101"
-        android:title="Brandings" >
+        android:title="Languages">
         <menu>
-            <item android:id="@+id/branding_baseline"
-                android:title="Baseline" />
-            <item android:id="@+id/branding_bluecross"
-                android:title="Bluecross" />
-            <item android:id="@+id/branding_tugo"
-                android:title="Tugo" />
-            <item android:id="@+id/branding_justtravel"
-                android:title="Justtravel" />
-            <item android:id="@+id/branding_demo1"
-                android:title="Demo1" />
+            <item
+                android:id="@+id/language_english"
+                android:title="English" />
+            <item
+                android:id="@+id/language_french"
+                android:title="French" />
+            <item
+                android:id="@+id/language_spanish"
+                android:title="Spanish" />
+            <item
+                android:id="@+id/language_german"
+                android:title="German" />
         </menu>
     </item>
 </menu>
