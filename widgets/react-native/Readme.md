@@ -3,7 +3,7 @@
 ### You can download android studio which will allow you to run an emulator.
 ### Once you run the emulator from android studio
 ### Npm run android this will start the application in the android emulator.
-
+### Tested on node version 18
 
 ## Environment variables
 #### You will need to add a .env file to the root of this project the following keys would be needed
