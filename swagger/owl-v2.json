@@ -1,0 +1,2119 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Owl",
+    "version": "1.0"
+  },
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "auth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "x-api-key",
+      "in": "header"
+    }
+  },
+  "paths": {
+    "/v2/owl": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "head": {
+        "description": "Service head check",
+        "tags": [
+          "owl - head"
+        ],
+        "responses": {
+          "200": {
+            "description": "Working"
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/version": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Get OWL version",
+        "tags": [
+          "owl - version"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "version": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Returns all subscribers",
+        "tags": [
+          "owl - subscribers"
+        ],
+        "responses": {
+          "200": {
+            "description": "User list"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Returns users subscription status",
+        "tags": [
+          "owl - subscribers"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User status",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "subscribed": {
+                  "type": "boolean"
+                },
+                "initialScan": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      },
+      "post": {
+        "description": "Subscribe user to service",
+        "tags": [
+          "owl - subscribers"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "partnerId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "MISSING_PARTNER_ID"
+          },
+          "409": {
+            "description": "ALREADY_ENROLLED"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      },
+      "delete": {
+        "description": "un-subscribe user from service",
+        "tags": [
+          "owl - subscribers"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/scan": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Initiate a subscription scan",
+        "tags": [
+          "owl - subscribers"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/subscriptions": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Return a list of current subscriptions",
+        "tags": [
+          "owl - subscriptions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Monitored info",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "SUBSCRIBER_NOT_FOUND"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/subscriptions/{id}": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "subscription type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "post": {
+        "description": "Create subscription type",
+        "tags": [
+          "owl - subscriptions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "subscription type",
+            "type": "string",
+            "enum" : [
+              "CARD",
+              "EMAIL_ADDRESS",
+              "BANK_ACCOUNT_NUMBER",
+              "PASSPORT",
+              "NATIONAL_ID",
+              "DRIVING_LICENCE",
+              "PHONE_NUMBER",
+              "IBAN",
+              "MEDICAL_ID",
+              "OTHERCARD"
+            ],
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "displayName": {
+                  "type": "string"
+                },
+                "displayValue": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "token": {
+                  "type": "string",
+                  "enum" : [
+                    "Yes",
+                    "No"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200"
+          },
+          "404": {
+            "description": "SUBSCRIBER_NOT_FOUND"
+          },
+          "400": {
+            "description": "Error",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Get subscription item details",
+        "tags": [
+          "owl - subscriptions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "subscriptionId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subscription item",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "subscriptionId": {
+                  "type": "string"
+                },
+                "subscriberId": {
+                  "type": "string"
+                },
+                "subscriptionType": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "displayName": {
+                  "type": "string"
+                },
+                "displayValue": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "token": {
+                  "type": "string"
+                },
+                "userData": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "created": {
+                  "type": "string",
+                  "format": "datetime"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      },
+      "delete": {
+        "description": "Delete subscription item",
+        "tags": [
+          "owl - subscriptions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "subscriptionId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      },
+      "patch": {
+        "description": "Patch subscription item",
+        "tags": [
+          "owl - subscriptions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "subscriptionId",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "displayName": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/subscriptions/alerts": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Returns a collections of alerts grouped by subscriptions",
+        "tags": [
+          "owl - alerts"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "filter = complete",
+            "required": false,
+            "type": "string",
+            "enum" : [ "complete" ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Monitored info",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "SUBSCRIBER_NOT_FOUND"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/alerts": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Returns a collections of alerts for the specified subscriber.",
+        "tags": [
+          "owl - alerts"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of alerts",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "SUBSCRIBER_NOT_FOUND"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/alerts/{alertId}": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "alertId",
+            "in": "path",
+            "description": "alert id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Returns a single alert for the specified subscriber and alert.",
+        "tags": [
+          "owl - alerts"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "alertId",
+            "in": "path",
+            "description": "alert id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Alert detail",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "SUBSCRIBER_NOT_FOUND, ALERT_NOT_FOUND",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      },
+      "patch": {
+        "description": "Updates an existings alert for the specified subscriber and alert",
+        "tags": [
+          "owl - alerts"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "alertId",
+            "in": "path",
+            "description": "alert id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "completed": {
+                  "type": "boolean"
+                },
+                "completedOn": {
+                  "type": "string",
+                  "format": "datetime"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Alert detail",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "SUBSCRIBER_NOT_FOUND, ALERT_NOT_FOUND",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/alerts/{alertId}/actions": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "alertId",
+            "in": "path",
+            "description": "alert id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Returns a collections of actions belonging to the specified subscriber and alert.",
+        "tags": [
+          "owl - actions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "alertId",
+            "in": "path",
+            "description": "alert id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of actions",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "SUBSCRIBER_NOT_FOUND, ALERT_NOT_FOUND",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/alerts/{alertId}/actions/{actionId}": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "alertId",
+            "in": "path",
+            "description": "alert id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "actionId",
+            "in": "path",
+            "description": "action id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Returns a single action for the specified user, alert and action.",
+        "tags": [
+          "owl - actions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "alertId",
+            "in": "path",
+            "description": "alert id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "actionId",
+            "in": "path",
+            "description": "action id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Action details",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {
+            "description": "SUBSCRIBER_NOT_FOUND, ALERT_NOT_FOUND, ACTION_NOT_FOUND",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/alerts/{alertId}/action": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "alertId",
+            "in": "path",
+            "description": "alert id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "put": {
+        "description": "Creates or updates an existing action for the specified user and alert",
+        "tags": [
+          "owl - actions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "alertId",
+            "in": "path",
+            "description": "alert id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "actionItem": {
+                  "type": "string"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "completedOn": {
+                  "type": "string",
+                  "format": "datetime"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Action details",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "actionId": {
+                  "type": "string"
+                },
+                "alertId": {
+                  "type": "string"
+                },
+                "actionItem": {
+                  "type": "string"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "completedOn": {
+                  "type": "string",
+                  "format": "datetime"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "SUBSCRIBER_NOT_FOUND, ALERT_NOT_FOUND",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/events": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Returns a collections of events belonging to the specified subscriber.",
+        "tags": [
+          "owl - actions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of events",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/events/{eventId}": {
+      "get": {
+        "description": "Returns a single event for the specified subscriber and event.",
+        "tags": [
+          "owl - actions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "eventId",
+            "in": "path",
+            "description": "event id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Single event",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/actionplans": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Returns a list of action plans for the specified subscriber.",
+        "tags": [
+          "owl - actions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of action plans",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/actionplans/{actionPlanId}": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "actionPlanId",
+            "in": "path",
+            "description": "action plan id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "get": {
+        "description": "Returns a single action plan for the specified subscriber and action plan Id.",
+        "tags": [
+          "owl - actions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "actionPlanId",
+            "in": "path",
+            "description": "Action plan id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of action plans",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      },
+      "patch": {
+        "description": "Updates an action plan for the specified subscriber and actionPlanId.",
+        "tags": [
+          "owl - actions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "actionPlanId",
+            "in": "path",
+            "description": "Action plan id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of action plans",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/actionplans/{actionPlanId}/actions": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "actionPlanId",
+            "in": "path",
+            "description": "action plan id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "post": {
+        "description": "Create a single action for the specified action plan.",
+        "tags": [
+          "owl - actions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "actionPlanId",
+            "in": "path",
+            "description": "Action plan id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "actionPlanId": {
+                  "type": "string"
+                },
+                "actionItem": {
+                  "type": "string"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "completedOn": {
+                  "type": "string",
+                  "format": "datetime"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of action plans",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    },
+    "/v2/owl/subscribers/{userId}/actionplans/{actionPlanId}/actions/{actionId}": {
+      "options": {
+        "tags": [
+            "owl - CORS"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "actionPlanId",
+            "in": "path",
+            "description": "action plan id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "actionId",
+            "in": "path",
+            "description": "action id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+                "description": "list of options"
+            }
+        },
+        "x-amazon-apigateway-integration": {
+            "credentials": {
+                "Fn::ImportValue": { "Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole" }
+            },
+            "uri": {
+                "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+            },
+            "passthroughBehavior": "when_no_match",
+            "httpMethod": "POST",
+            "type": "aws_proxy"
+        }
+      },
+      "patch": {
+        "description": "Update the specified action for the specified action plan.",
+        "tags": [
+          "owl - actions"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "actionPlanId",
+            "in": "path",
+            "description": "Action plan id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "actionId",
+            "in": "path",
+            "description": "Action id",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "completed": {
+                  "type": "boolean"
+                },
+                "completedOn": {
+                  "type": "string",
+                  "format": "datetime"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the action for that action plan",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "auth": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "credentials": {
+            "Fn::ImportValue": {"Fn::Sub": "${ProjectId}-${AWS::Region}-LambdaTrustRole"}
+          },
+          "uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${Owl.Arn}/invocations"
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws_proxy"
+        }
+      }
+    }
+  }
+}
